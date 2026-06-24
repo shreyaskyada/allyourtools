@@ -37,3 +37,32 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
+## Categories Structure
+
+### Developer Tools
+
+JSON Formatter
+UUID Generator
+JWT Decoder
+Base64 Encoder/Decoder
+Timestamp Converter
+
+### Text Tools
+
+Word Counter
+Character Counter (future)
+Case Converter
+
+### Image Tools
+
+Image Compressor
+Image Resizer (future)
+Image Converter (future)
+
+### Security Tools
+
+Password Generator
+
+### Utility Tools
+
+QR Code Generator

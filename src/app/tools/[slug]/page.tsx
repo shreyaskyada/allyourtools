@@ -30,8 +30,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const toolComponents: Record<string, React.ComponentType> = {
-  "json-formatter": dynamic(() => import("../../../tools/json-formatter/component")),
-  "uuid-generator": dynamic(() => import("../../../tools/uuid-generator/component")),
+  "json-formatter": dynamic(
+    () => import("../../../tools/json-formatter/component"),
+  ),
+  "uuid-generator": dynamic(
+    () => import("../../../tools/uuid-generator/component"),
+  ),
+  "jwt-decoder": dynamic(() => import("../../../tools/jwt-decoder/component")),
 };
 
 export default async function ToolPage({ params }: Props) {

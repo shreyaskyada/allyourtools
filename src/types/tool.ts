@@ -4,4 +4,5 @@ export interface Tool {
   description: string;
   category: string;
   featured?: boolean;
+  fullWidth?: boolean;
 }

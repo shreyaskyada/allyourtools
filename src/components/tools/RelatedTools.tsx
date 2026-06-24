@@ -25,9 +25,9 @@ export default function RelatedTools({ relatedTools }: RelatedToolsProps) {
             <Card className="h-full border border-border bg-card hover:border-primary/50 hover:shadow-sm transition-all duration-300">
               <CardHeader className="flex flex-col h-full justify-between">
                 <div>
-                  <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors flex items-center justify-between">
-                    {tool.title}
-                    <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary" />
+                  <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors flex items-center justify-between w-full">
+                    <span>{tool.title}</span>
+                    <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                   </CardTitle>
                   <CardDescription className="text-muted-foreground text-sm mt-2 line-clamp-2">
                     {tool.description}

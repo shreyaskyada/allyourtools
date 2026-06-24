@@ -33,17 +33,15 @@ export default function ToolLayout({
       />
 
       {/* Main Tool Area */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        {/* Left Side: The Interactive Tool Workspace */}
-        <div className="lg:col-span-2 flex flex-col gap-6">
-          <div className="border border-border bg-card rounded-xl p-6 shadow-sm">
+      {tool.fullWidth ? (
+        <div className="flex flex-col gap-10">
+          {/* Full-width interactive workspace */}
+          <div className="border border-border bg-card rounded-xl p-4 md:p-6 shadow-sm">
             {children}
           </div>
-        </div>
 
-        {/* Right Side: Descriptive User Guide / About Content */}
-        <div className="flex flex-col gap-6">
-          <div className="border border-border bg-muted/20 rounded-xl p-6 text-sm">
+          {/* Descriptive user guide below */}
+          <div className="border border-border bg-muted/20 rounded-xl p-4 md:p-6 text-sm">
             <h3 className="font-semibold text-foreground text-base mb-3">
               About {tool.title}
             </h3>
@@ -61,7 +59,37 @@ export default function ToolLayout({
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Left Side: The Interactive Tool Workspace */}
+          <div className="lg:col-span-2 flex flex-col gap-6">
+            <div className="border border-border bg-card rounded-xl p-4 md:p-6 shadow-sm">
+              {children}
+            </div>
+          </div>
+
+          {/* Right Side: Descriptive User Guide / About Content */}
+          <div className="flex flex-col gap-6">
+            <div className="border border-border bg-muted/20 rounded-xl p-4 md:p-6 text-sm">
+              <h3 className="font-semibold text-foreground text-base mb-3">
+                About {tool.title}
+              </h3>
+              <div className="text-muted-foreground leading-relaxed flex flex-col gap-4">
+                {ToolContent ? (
+                  <ToolContent />
+                ) : (
+                  <p>
+                    Use this {tool.title.toLowerCase()} tool to format, analyze,
+                    or generate data. This tool works completely offline in your
+                    web browser. No data is sent to our servers, keeping your
+                    information secure.
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* FAQs */}
       <ToolFaq faqs={faqs} />

@@ -121,9 +121,9 @@ export default function ClientHome({ tools, categories }: ClientHomeProps) {
                     <Card className="h-full border border-border hover:border-primary/50 hover:shadow-sm transition-all duration-300">
                       <CardHeader className="flex flex-col h-full justify-between gap-4">
                         <div>
-                          <CardTitle className="text-base font-semibold group-hover:text-primary transition-colors flex items-center justify-between">
-                            {tool.title}
-                            <ArrowRight className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-primary" />
+                          <CardTitle className="text-base font-semibold group-hover:text-primary transition-colors flex items-center justify-between w-full">
+                            <span>{tool.title}</span>
+                            <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-300" />
                           </CardTitle>
                           <CardDescription className="text-muted-foreground text-xs mt-1.5 leading-relaxed line-clamp-2">
                             {tool.description}

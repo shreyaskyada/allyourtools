@@ -15,4 +15,12 @@ export const tools: Tool[] = [
     category: "developer-tools",
     featured: true,
   },
+  {
+    slug: "jwt-decoder",
+    title: "JWT Decoder",
+    description: "Decode, inspect, and verify JSON Web Tokens (JWT) instantly.",
+    category: "developer-tools",
+    featured: true,
+    fullWidth: true,
+  },
 ];
