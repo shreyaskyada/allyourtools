@@ -1,0 +1,71 @@
+import { notFound } from "next/navigation";
+import {
+  getToolBySlug,
+  getRelatedTools,
+  getToolFaq,
+  getToolContent,
+  getToolMetadata,
+} from "@/lib/tools";
+import { categories } from "@/config/categories";
+import ToolLayout from "@/components/tools/ToolLayout";
+import Container from "@/components/layout/Container";
+import dynamic from "next/dynamic";
+import { Metadata } from "next";
+
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const toolMetadata = await getToolMetadata(slug);
+  if (toolMetadata) return toolMetadata;
+
+  const tool = getToolBySlug(slug);
+  if (!tool) return {};
+  return {
+    title: `${tool.title} - Free Online Tool`,
+    description: tool.description,
+  };
+}
+
+const toolComponents: Record<string, React.ComponentType> = {
+  "json-formatter": dynamic(() => import("../../../tools/json-formatter/component")),
+  "uuid-generator": dynamic(() => import("../../../tools/uuid-generator/component")),
+};
+
+export default async function ToolPage({ params }: Props) {
+  const { slug } = await params;
+  const tool = getToolBySlug(slug);
+  if (!tool) {
+    notFound();
+  }
+
+  const category = categories.find((c) => c.id === tool.category);
+  if (!category) {
+    notFound();
+  }
+
+  const ToolComponent = toolComponents[slug];
+  if (!ToolComponent) {
+    notFound();
+  }
+
+  const relatedTools = getRelatedTools(tool);
+  const faqs = await getToolFaq(slug);
+  const content = await getToolContent(slug);
+
+  return (
+    <Container className="py-10 flex-1">
+      <ToolLayout
+        tool={tool}
+        category={category}
+        relatedTools={relatedTools}
+        faqs={faqs}
+        content={content}
+      >
+        <ToolComponent />
+      </ToolLayout>
+    </Container>
+  );
+}
