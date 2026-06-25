@@ -32,4 +32,12 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: true,
   },
+  {
+    slug: "base64-image-converter",
+    title: "Base64 Image Converter",
+    description: "Convert images and videos to Base64 strings, or decode Base64 data URLs back to viewable media and files instantly.",
+    category: "developer-tools",
+    featured: true,
+    fullWidth: true,
+  },
 ];
