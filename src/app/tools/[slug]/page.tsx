@@ -45,6 +45,8 @@ const toolComponents: Record<string, React.ComponentType> = {
   "case-converter": dynamic(() => import("../../../tools/case-converter/component")),
   "image-compressor": dynamic(() => import("../../../tools/image-compressor/component")),
   "image-converter": dynamic(() => import("../../../tools/image-converter/component")),
+  "password-generator": dynamic(() => import("../../../tools/password-generator/component")),
+  "qr-code-generator": dynamic(() => import("../../../tools/qr-code-generator/component")),
 };
 
 export default async function ToolPage({ params }: Props) {

@@ -36,4 +36,16 @@ export const categories: Category[] = [
     description: "Calculators and mathematical utility tools.",
     icon: "Calculator",
   },
+  {
+    id: "security-tools",
+    name: "Security Tools",
+    description: "Password generators and other security utilities.",
+    icon: "Shield",
+  },
+  {
+    id: "utility-tools",
+    name: "Utility Tools",
+    description: "Handy generators and conversion utilities for everyday tasks.",
+    icon: "Wrench",
+  },
 ];
