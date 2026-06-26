@@ -80,4 +80,12 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: true,
   },
+  {
+    slug: "image-converter",
+    title: "Image Converter",
+    description: "Convert images between JPEG, PNG, WebP, AVIF, GIF, BMP, and ICO formats client-side instantly with a live before-and-after preview.",
+    category: "image-tools",
+    featured: true,
+    fullWidth: true,
+  },
 ];
