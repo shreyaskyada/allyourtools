@@ -41,6 +41,8 @@ const toolComponents: Record<string, React.ComponentType> = {
   "base64-image-converter": dynamic(() => import("../../../tools/base64-image-converter/component")),
   "timestamp-converter": dynamic(() => import("../../../tools/timestamp-converter/component")),
   "timezone-converter": dynamic(() => import("../../../tools/timezone-converter/component")),
+  "word-counter": dynamic(() => import("../../../tools/word-counter/component")),
+  "case-converter": dynamic(() => import("../../../tools/case-converter/component")),
 };
 
 export default async function ToolPage({ params }: Props) {

@@ -56,4 +56,20 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: true,
   },
+  {
+    slug: "word-counter",
+    title: "Word Counter",
+    description: "Count words, characters, sentences, and paragraphs, and analyze word density and reading time estimates instantly.",
+    category: "text-content",
+    featured: true,
+    fullWidth: true,
+  },
+  {
+    slug: "case-converter",
+    title: "Case Converter",
+    description: "Convert text case between UPPERCASE, lowercase, Title Case, Sentence case, camelCase, snake_case, PascalCase, and clean extra formatting instantly.",
+    category: "text-content",
+    featured: true,
+    fullWidth: true,
+  },
 ];
