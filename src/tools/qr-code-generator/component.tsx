@@ -82,7 +82,7 @@ const ColorPicker = ({ label, value, onChange }: { label: string, value: string,
           align="start" 
           sideOffset={12}
         >
-          <div className="overflow-hidden rounded-lg border border-border/40 shadow-sm ring-1 ring-black/5 dark:ring-white/5">
+          <div className="rounded-lg shadow-sm">
             <HexColorPicker color={value} onChange={onChange} />
           </div>
           

@@ -114,4 +114,22 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: true,
   },
+  {
+    slug: "url-encoder-decoder",
+    title: "URL Encoder / Decoder",
+    description:
+      "Encode or decode strings to make them URL-safe. Instantly translates special characters into percent-encoding and back.",
+    category: "developer-tools",
+    featured: true,
+    fullWidth: false,
+  },
+  {
+    slug: "color-converter",
+    title: "Color Converter",
+    description:
+      "Convert between HEX, RGB, HSL, and CMYK color formats instantly. Visualize colors and generate corresponding CSS code.",
+    category: "design-color",
+    featured: true,
+    fullWidth: false,
+  },
 ];
