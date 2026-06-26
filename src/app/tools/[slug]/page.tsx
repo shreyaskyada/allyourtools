@@ -39,6 +39,8 @@ const toolComponents: Record<string, React.ComponentType> = {
   "jwt-decoder": dynamic(() => import("../../../tools/jwt-decoder/component")),
   "jwt-generator": dynamic(() => import("../../../tools/jwt-generator/component")),
   "base64-image-converter": dynamic(() => import("../../../tools/base64-image-converter/component")),
+  "timestamp-converter": dynamic(() => import("../../../tools/timestamp-converter/component")),
+  "timezone-converter": dynamic(() => import("../../../tools/timezone-converter/component")),
 };
 
 export default async function ToolPage({ params }: Props) {

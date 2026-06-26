@@ -40,4 +40,20 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: true,
   },
+  {
+    slug: "timestamp-converter",
+    title: "Timestamp Converter",
+    description: "Convert Unix timestamps to human-readable dates and vice versa instantly.",
+    category: "developer-tools",
+    featured: true,
+    fullWidth: true,
+  },
+  {
+    slug: "timezone-converter",
+    title: "Time Zone Converter",
+    description: "Convert dates and times across multiple world time zones, calculate timezone offsets, and visualize cross-timezone meeting planners instantly.",
+    category: "developer-tools",
+    featured: true,
+    fullWidth: true,
+  },
 ];
