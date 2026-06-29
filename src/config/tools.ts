@@ -132,4 +132,58 @@ export const tools: Tool[] = [
     featured: true,
     fullWidth: false,
   },
+  {
+    slug: "lorem-ipsum-generator",
+    title: "Lorem Ipsum Generator",
+    description:
+      "Generate placeholder text for your designs and documents instantly. Customize by paragraphs, sentences, or words.",
+    category: "text-content",
+    featured: true,
+    fullWidth: false,
+  },
+  {
+    slug: "text-diff",
+    title: "Text Diff",
+    description:
+      "Find differences between two texts instantly. Compare plain text or code to see exactly what changed.",
+    category: "text-content",
+    featured: true,
+    fullWidth: true,
+  },
+  {
+    slug: "word-frequency-analyzer",
+    title: "Word Frequency Analyzer",
+    description:
+      "Analyze text for keyword density, word frequencies, and find duplicate words instantly.",
+    category: "text-content",
+    featured: true,
+    fullWidth: false,
+  },
+  {
+    slug: "text-reverser",
+    title: "Text Reverser",
+    description:
+      "Reverse text in multiple ways: flip upside down, reverse words, sentences, or individual characters.",
+    category: "text-content",
+    featured: true,
+    fullWidth: false,
+  },
+  {
+    slug: "list-randomizer",
+    title: "List Randomizer",
+    description:
+      "Shuffle and randomize lists instantly. Great for generating random selections or unbiased ordering.",
+    category: "text-content",
+    featured: true,
+    fullWidth: false,
+  },
+  {
+    slug: "number-randomizer",
+    title: "Random Number Generator",
+    description:
+      "Generate truly random numbers or sequences instantly. Customize ranges, length, and formatting.",
+    category: "text-content",
+    featured: true,
+    fullWidth: true,
+  },
 ];

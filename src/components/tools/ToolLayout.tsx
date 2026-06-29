@@ -39,7 +39,7 @@ export default function ToolLayout({
           <div className="border border-border bg-card rounded-xl p-4 md:p-6 shadow-sm">
             {children}
           </div>
-          
+
           {/* About Content (Bottom) */}
           <div className="border border-border bg-muted/20 rounded-xl p-4 md:p-6 text-sm">
             <h3 className="font-semibold text-foreground text-base mb-3">

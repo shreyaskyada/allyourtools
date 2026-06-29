@@ -49,6 +49,12 @@ const toolComponents: Record<string, React.ComponentType> = {
   "qr-code-generator": dynamic(() => import("../../../tools/qr-code-generator/component")),
   "url-encoder-decoder": dynamic(() => import("../../../tools/url-encoder-decoder/component")),
   "color-converter": dynamic(() => import("../../../tools/color-converter/component")),
+  "lorem-ipsum-generator": dynamic(() => import("../../../tools/lorem-ipsum-generator/component")),
+  "text-diff": dynamic(() => import("../../../tools/text-diff/component")),
+  "word-frequency-analyzer": dynamic(() => import("../../../tools/word-frequency-analyzer/component")),
+  "text-reverser": dynamic(() => import("../../../tools/text-reverser/component")),
+  "list-randomizer": dynamic(() => import("../../../tools/list-randomizer/component")),
+  "number-randomizer": dynamic(() => import("../../../tools/number-randomizer/component")),
 };
 
 export default async function ToolPage({ params }: Props) {
