@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -18,8 +19,35 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://allyourtools.app"),
   title: "AllYourTools - Free Online Developer and Content Tools",
   description: "Browse 100+ free online developer utilities, text formatting calculators, design tools, and security converters. Private, fast, and secure.",
+  keywords: ["developer tools", "online tools", "json formatter", "uuid generator", "base64 converter", "jwt decoder", "free tools"],
+  openGraph: {
+    title: "AllYourTools - Free Online Developer and Content Tools",
+    description: "Browse 100+ free online developer utilities, text formatting calculators, design tools, and security converters. Private, fast, and secure.",
+    url: "https://allyourtools.app",
+    siteName: "AllYourTools",
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 600,
+        alt: "AllYourTools Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AllYourTools - Free Online Developer and Content Tools",
+    description: "Browse 100+ free online developer utilities, text formatting calculators, design tools, and security converters. Private, fast, and secure.",
+    images: ["/logo.png"],
+  },
+  alternates: {
+    canonical: "https://allyourtools.app",
+  }
 };
 
 export default function RootLayout({
@@ -33,6 +61,14 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1375243567926496"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <ThemeProvider
           attribute="class"

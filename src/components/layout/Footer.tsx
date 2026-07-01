@@ -73,13 +73,41 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-3">
-              Privacy & Terms
-            </h4>
-            <p className="text-xs leading-relaxed">
-              All tools run entirely client-side. Your inputs are never sent to
-              a server. Your data stays 100% private and secure.
-            </p>
+            <h4 className="font-semibold text-foreground mb-3">Company & Legal</h4>
+            <ul className="flex flex-col gap-2 text-xs">
+              <li>
+                <Link
+                  href="/about"
+                  className="hover:text-foreground transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms-of-service"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 

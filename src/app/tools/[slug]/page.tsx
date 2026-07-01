@@ -18,15 +18,29 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const toolMetadata = await getToolMetadata(slug);
-  if (toolMetadata) return toolMetadata;
-
   const tool = getToolBySlug(slug);
   if (!tool) return {};
-  return {
+
+  const baseMetadata = {
     title: `${tool.title} - Free Online Tool`,
     description: tool.description,
+    alternates: {
+      canonical: `https://allyourtools.app/tools/${slug}`,
+    },
   };
+
+  const toolMetadata = await getToolMetadata(slug);
+  if (toolMetadata) {
+    return {
+      ...toolMetadata,
+      alternates: {
+        canonical: `https://allyourtools.app/tools/${slug}`,
+        ...toolMetadata.alternates,
+      },
+    };
+  }
+
+  return baseMetadata;
 }
 
 const toolComponents: Record<string, React.ComponentType> = {
@@ -79,8 +93,27 @@ export default async function ToolPage({ params }: Props) {
   const faqs = await getToolFaq(slug);
   const content = await getToolContent(slug);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: tool.title,
+    description: tool.description,
+    url: `https://allyourtools.app/tools/${slug}`,
+    applicationCategory: category.name,
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+  };
+
   return (
     <Container className="py-10 flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ToolLayout
         tool={tool}
         category={category}

@@ -11,6 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const staticPages = ["/about", "/contact", "/privacy-policy", "/terms-of-service"];
+  const staticUrls = staticPages.map((page) => ({
+    url: `${baseUrl}${page}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -19,5 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     ...toolUrls,
+    ...staticUrls,
   ];
 }
