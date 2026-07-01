@@ -498,7 +498,7 @@ export default function TimezoneConverter(): React.JSX.Element {
       const city = tz.split("/").pop()?.replace(/_/g, " ") || tz;
       text += `- 🕒 ${city}: ${formatTimeTz(baseDate, tz)} (${getGmtOffset(baseDate, tz)})\n`;
     });
-    text += `\nConverted via ToolVerse Timezone Converter`;
+    text += `\nConverted via AllYourTools Timezone Converter`;
     return text;
   };
 

@@ -124,8 +124,8 @@ async function generateSampleJWT(secret: string, isExpired: boolean = false): Pr
     role: "admin",
     iat: iat,
     exp: exp,
-    iss: "toolverse.com",
-    aud: "api.toolverse.com"
+    iss: "allyourtools.app",
+    aud: "api.allyourtools.app"
   };
   
   const base64UrlEncode = (obj: unknown) => {

@@ -27,7 +27,7 @@ export default function JsonFormatter() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   const sampleJson = {
-    name: "ToolVerse",
+    name: "AllYourTools",
     version: "1.0.0",
     description: "Multi-tool web app suite",
     features: ["offline processing", "client-side validation", "responsive UI"],

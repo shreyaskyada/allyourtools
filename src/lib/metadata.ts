@@ -9,13 +9,13 @@ export function createMetadata(
     noIndex?: boolean;
   }
 ): Metadata {
-  const siteName = "ToolVerse";
+  const siteName = "AllYourTools";
   const defaultTitle = `${title} | ${siteName}`;
 
   return {
     title: defaultTitle,
     description,
-    metadataBase: new URL("https://toolverse.com"),
+    metadataBase: new URL("https://allyourtools.app"),
     alternates: {
       canonical: options?.canonical || "/",
     },

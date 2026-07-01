@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { tools } from "@/config/tools";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://toolverse.com";
+  const baseUrl = "https://allyourtools.app";
   
   const toolUrls = tools.map((tool) => ({
     url: `${baseUrl}/tools/${tool.slug}`,

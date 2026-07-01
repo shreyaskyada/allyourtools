@@ -197,8 +197,8 @@ export default function JwtGenerator() {
 
   // Form claim helpers state
   const [sub, setSub] = useState("usr_1234567890");
-  const [iss, setIss] = useState("toolverse.com");
-  const [aud, setAud] = useState("api.toolverse.com");
+  const [iss, setIss] = useState("allyourtools.app");
+  const [aud, setAud] = useState("api.allyourtools.app");
   const [expOffset, setExpOffset] = useState("3600"); // 1 hour
   const [addIat, setAddIat] = useState(true);
   const [addNbf, setAddNbf] = useState(false);

@@ -23,7 +23,7 @@ export default function Header() {
     const handle = requestAnimationFrame(() => {
       setMounted(true);
     });
-    
+
     // Global Cmd+K shortcut
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -36,7 +36,7 @@ export default function Header() {
       }
     };
     window.addEventListener("keydown", handleKeyDown);
-    
+
     return () => {
       cancelAnimationFrame(handle);
       window.removeEventListener("keydown", handleKeyDown);
@@ -48,12 +48,15 @@ export default function Header() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <div className="flex items-center gap-6">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight">
+          <Link
+            href="/"
+            className="flex items-center gap-2 font-bold text-xl tracking-tight"
+          >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Wrench className="h-4.5 w-4.5" />
             </span>
             <span className="bg-gradient-to-r from-foreground via-foreground/90 to-muted-foreground bg-clip-text text-transparent">
-              ToolVerse
+              AllYourTools
             </span>
           </Link>
 
@@ -84,8 +87,6 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-3 sm:gap-4">
-
-
           {/* Theme Toggle */}
           {mounted && (
             <Button

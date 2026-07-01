@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ToolVerse - Free Online Developer and Content Tools",
+  title: "AllYourTools - Free Online Developer and Content Tools",
   description: "Browse 100+ free online developer utilities, text formatting calculators, design tools, and security converters. Private, fast, and secure.",
 };
 
