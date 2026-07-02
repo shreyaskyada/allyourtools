@@ -196,6 +196,15 @@ export const tools: Tool[] = [
     fullWidth: true,
   },
   {
+    slug: "markdown-editor",
+    title: "Markdown Editor & Previewer",
+    description:
+      "A fast, split-screen markdown editor with live HTML preview. Supports GitHub-flavored markdown, tables, and code blocks.",
+    category: "text-content",
+    featured: true,
+    fullWidth: true,
+  },
+  {
     slug: "name-wheel-picker",
     title: "Name Random Picker (Wheel)",
     description:
