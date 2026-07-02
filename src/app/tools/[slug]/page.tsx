@@ -70,6 +70,7 @@ const toolComponents: Record<string, React.ComponentType> = {
   "list-randomizer": dynamic(() => import("../../../tools/list-randomizer/component")),
   "number-randomizer": dynamic(() => import("../../../tools/number-randomizer/component")),
   "certificate-generator": dynamic(() => import("../../../tools/certificate-generator/component")),
+  "name-wheel-picker": dynamic(() => import("../../../tools/name-wheel-picker/component")),
 };
 
 export default async function ToolPage({ params }: Props) {

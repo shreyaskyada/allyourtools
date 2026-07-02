@@ -195,4 +195,13 @@ export const tools: Tool[] = [
     featured: false,
     fullWidth: true,
   },
+  {
+    slug: "name-wheel-picker",
+    title: "Name Random Picker (Wheel)",
+    description:
+      "Spin the wheel to pick a random name! A fun and interactive student random picker, perfect for classrooms and giveaways.",
+    category: "utility-tools",
+    featured: true,
+    fullWidth: true,
+  },
 ];

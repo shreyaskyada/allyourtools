@@ -13,17 +13,16 @@ interface ClientHomeProps {
   categories: Category[];
 }
 
-export default function ClientHome({ tools, categories }: ClientHomeProps) {
-  const searchParams = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  // Sync search query if URL changes
-  useEffect(() => {
-    setSearchQuery(searchParams.get("q") || "");
-  }, [searchParams]);
-
-  // Animated Placeholder State
+// Extracted Search Input Component to isolate animation re-renders
+function AnimatedSearchInput({
+  searchQuery,
+  setSearchQuery,
+  inputRef,
+}: {
+  searchQuery: string;
+  setSearchQuery: (val: string) => void;
+  inputRef: React.RefObject<HTMLInputElement | null>;
+}) {
   const placeholders = useMemo(
     () => [
       "Search 'JSON formatter'...",
@@ -41,7 +40,6 @@ export default function ClientHome({ tools, categories }: ClientHomeProps) {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
-
     const currentString = placeholders[placeholderIndex];
 
     if (isDeleting) {
@@ -63,6 +61,47 @@ export default function ClientHome({ tools, categories }: ClientHomeProps) {
 
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, placeholderIndex, placeholders]);
+
+  return (
+    <div className="relative w-full max-w-2xl mt-6 group">
+      <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-3xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
+      <div className="relative flex items-center bg-card border-2 border-border/60 hover:border-border focus-within:border-primary/50 focus-within:ring-4 focus-within:ring-primary/10 rounded-2xl shadow-sm transition-all duration-300">
+        <Search className="absolute left-5 h-6 w-6 text-muted-foreground group-focus-within:text-primary transition-colors" />
+        <input
+          ref={inputRef}
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder={searchQuery ? "" : displayText}
+          className="w-full h-16 pl-14 pr-16 bg-transparent border-none outline-none text-lg text-foreground placeholder:text-muted-foreground/60 rounded-2xl"
+        />
+        <div className="absolute right-4 flex items-center gap-1 opacity-50">
+          <kbd className="hidden sm:inline-flex h-6 items-center gap-1 rounded border bg-muted px-2 font-mono text-[10px] font-medium text-muted-foreground">
+            <span className="text-xs">⌘</span>K
+          </kbd>
+        </div>
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="absolute right-4 text-xs font-semibold bg-muted text-muted-foreground px-2 py-1 rounded-md hover:bg-muted-foreground/20 transition-colors"
+          >
+            ESC
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default function ClientHome({ tools, categories }: ClientHomeProps) {
+  const searchParams = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(searchParams.get("q") || "");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Sync search query if URL changes
+  useEffect(() => {
+    setSearchQuery(searchParams.get("q") || "");
+  }, [searchParams]);
 
   // Keyboard shortcut to focus search (Cmd/Ctrl + K)
   useEffect(() => {
@@ -114,34 +153,11 @@ export default function ClientHome({ tools, categories }: ClientHomeProps) {
           securely, and completely in your browser.
         </p>
 
-        {/* Large Raycast-style Search Bar */}
-        <div className="relative w-full max-w-2xl mt-6 group">
-          <div className="absolute inset-0 bg-primary/20 blur-2xl rounded-3xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
-          <div className="relative flex items-center bg-card border-2 border-border/60 hover:border-border focus-within:border-primary/50 focus-within:ring-4 focus-within:ring-primary/10 rounded-2xl shadow-sm transition-all duration-300">
-            <Search className="absolute left-5 h-6 w-6 text-muted-foreground group-focus-within:text-primary transition-colors" />
-            <input
-              ref={inputRef}
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={searchQuery ? "" : displayText}
-              className="w-full h-16 pl-14 pr-16 bg-transparent border-none outline-none text-lg text-foreground placeholder:text-muted-foreground/60 rounded-2xl"
-            />
-            <div className="absolute right-4 flex items-center gap-1 opacity-50">
-              <kbd className="hidden sm:inline-flex h-6 items-center gap-1 rounded border bg-muted px-2 font-mono text-[10px] font-medium text-muted-foreground">
-                <span className="text-xs">⌘</span>K
-              </kbd>
-            </div>
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 text-xs font-semibold bg-muted text-muted-foreground px-2 py-1 rounded-md hover:bg-muted-foreground/20 transition-colors"
-              >
-                ESC
-              </button>
-            )}
-          </div>
-        </div>
+        <AnimatedSearchInput 
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          inputRef={inputRef}
+        />
 
         {/* Suggestion Pills */}
         <div className="flex flex-wrap items-center justify-center gap-2 mt-4 max-w-2xl">

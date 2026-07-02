@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { Tool } from "@/types/tool";
-import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { ArrowRight } from "lucide-react";
 
 interface RelatedToolsProps {
@@ -11,7 +16,7 @@ export default function RelatedTools({ relatedTools }: RelatedToolsProps) {
   if (!relatedTools || relatedTools.length === 0) return null;
 
   return (
-    <div className="mt-16 border-t border-border pt-10">
+    <div className="border-t border-border pt-10">
       <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">
         Related Utilities
       </h2>

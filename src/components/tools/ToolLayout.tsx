@@ -33,14 +33,18 @@ export default function ToolLayout({
       />
 
       {/* Main Tool Area */}
-      <div className={tool.fullWidth ? "flex flex-col gap-8" : "grid grid-cols-1 lg:grid-cols-3 gap-8"}>
+      <div
+        className={
+          tool.fullWidth
+            ? "flex flex-col gap-8"
+            : "grid grid-cols-1 lg:grid-cols-3 gap-8"
+        }
+      >
         {/* The Interactive Tool Workspace */}
         <div className={tool.fullWidth ? "w-full" : "lg:col-span-2"}>
           <div className="border border-border/80 bg-card rounded-2xl shadow-sm overflow-hidden flex flex-col h-full ring-1 ring-border/40 focus-within:ring-primary/20 transition-all duration-300">
             {/* Standardized Tool Header/Toolbar area could go here if tools didn't render their own */}
-            <div className="p-4 sm:p-6 flex-1 flex flex-col">
-              {children}
-            </div>
+            <div className="p-4 sm:p-6 flex-1 flex flex-col">{children}</div>
           </div>
         </div>
 
@@ -64,19 +68,18 @@ export default function ToolLayout({
               )}
             </div>
           </div>
-          
         </div>
       </div>
 
       {/* FAQs */}
       {faqs.length > 0 && (
-        <div className="mt-8">
+        <div className="mt-4">
           <ToolFaq faqs={faqs} />
         </div>
       )}
 
       {/* Related tools */}
-      <div className="mt-12 pt-8 border-t border-border/50">
+      <div className="mt-4">
         <RelatedTools relatedTools={relatedTools} />
       </div>
     </div>

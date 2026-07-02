@@ -18,7 +18,7 @@ export default function ToolFaq({ faqs }: ToolFaqProps) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <div className="mt-16 border-t border-border pt-10">
+    <div className="border-t border-border pt-10">
       <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">
         Frequently Asked Questions
       </h2>
