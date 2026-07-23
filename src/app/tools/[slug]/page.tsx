@@ -7,10 +7,17 @@ import {
   getToolMetadata,
 } from "@/lib/tools";
 import { categories } from "@/config/categories";
+import { tools } from "@/config/tools";
 import ToolLayout from "@/components/tools/ToolLayout";
 import Container from "@/components/layout/Container";
 import dynamic from "next/dynamic";
 import { Metadata } from "next";
+
+export async function generateStaticParams() {
+  return tools.map((tool) => ({
+    slug: tool.slug,
+  }));
+}
 
 interface Props {
   params: Promise<{ slug: string }>;
