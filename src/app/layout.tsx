@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://allyourtools.app",
+  },
+  verification: {
+    google: "HxKXGEIWCP3PAu4TQ2oLk6huFxA_5RFa6Nhi29MNwd8",
   }
 };
 
