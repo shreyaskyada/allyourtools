@@ -51,10 +51,10 @@ export default function ToolLayout({
         {/* Right Side / Bottom: Descriptive User Guide & About Content */}
         <div className="flex flex-col gap-6">
           <div className="border border-border/60 bg-muted/30 rounded-2xl p-5 md:p-6 text-sm">
-            <h3 className="font-semibold text-foreground text-lg tracking-tight mb-4 flex items-center gap-2">
+            <h2 className="font-semibold text-foreground text-lg tracking-tight mb-4 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-primary rounded-full inline-block"></span>
               About {tool.title}
-            </h3>
+            </h2>
             <div className="text-muted-foreground leading-relaxed flex flex-col gap-4 prose prose-sm dark:prose-invert">
               {ToolContent ? (
                 <ToolContent />

@@ -10,18 +10,21 @@ export function createMetadata(
   }
 ): Metadata {
   const siteName = "AllYourTools";
-  const defaultTitle = `${title} | ${siteName}`;
+  const defaultTitle = `${title} Online - Free & Instant | ${siteName}`;
+  const formattedDescription = description.startsWith("Best online")
+    ? description
+    : `Best online ${title}. ${description}${description.endsWith(".") ? "" : "."} 100% secure, private, and free to use.`;
 
   return {
     title: defaultTitle,
-    description,
+    description: formattedDescription,
     metadataBase: new URL("https://allyourtools.app"),
     alternates: {
       canonical: options?.canonical || "/",
     },
     openGraph: {
       title: defaultTitle,
-      description,
+      description: formattedDescription,
       type: "website",
       siteName,
       images: [
@@ -36,7 +39,7 @@ export function createMetadata(
     twitter: {
       card: "summary_large_image",
       title: defaultTitle,
-      description,
+      description: formattedDescription,
       images: [options?.ogImage || "/og-image.png"],
     },
     robots: {

@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!tool) return {};
 
   const baseMetadata = {
-    title: `${tool.title} - Free Online Tool`,
-    description: tool.description,
+    title: `${tool.title} Online - Free & Instant | AllYourTools`,
+    description: `Best online ${tool.title}. ${tool.description}${tool.description.endsWith(".") ? "" : "."} 100% secure, private, and free to use.`,
     alternates: {
       canonical: `https://allyourtools.app/tools/${slug}`,
     },
@@ -41,8 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       ...toolMetadata,
       alternates: {
-        canonical: `https://allyourtools.app/tools/${slug}`,
         ...toolMetadata.alternates,
+        canonical: `https://allyourtools.app/tools/${slug}`,
       },
     };
   }
@@ -117,12 +117,31 @@ export default async function ToolPage({ params }: Props) {
     },
   };
 
+  const faqJsonLd = faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  } : null;
+
   return (
     <Container className="py-10 flex-1">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <ToolLayout
         tool={tool}
         category={category}
